@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhaskar Das - Skills</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #E0F7FA; /* soft water-blue */
+    color: #01579B; /* deep blue text */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  header {
+    margin-bottom: 50px;
+  }
+  nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #01579B;
+    transition: color 0.3s;
+  }
+  nav a:hover, nav a.active {
+    color: #00BCD4; /* bright cyan highlight */
+  }
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  .skills-card {
+    background-color: #B2EBF2; /* lighter cyan */
+    border: 3px solid #00ACC1; /* medium blue border */
+    border-radius: 15px;
+    padding: 25px;
+    width: 300px;
+    box-sizing: border-box;
+    text-align: left;
+    cursor: default;
+    animation: float 3s ease-in-out infinite;
+    transition: transform 0.3s;
+  }
+  .skills-card:hover {
+    transform: scale(1.05);
+  }
+  .skills-card h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .skills-card ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 12px;
+  }
+  .skills-card ul li {
+    margin-bottom: 5px;
+  }
+
+  /* Squirtle sprite jump animation */
+  .sprite {
+    display: block;
+    margin: 0 auto 40px auto;
+    width: 100px;
+    height: 100px;
+    animation: jump 0.6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+  }
+
+  @keyframes jump {
+    0%   { transform: translateY(0); }
+    25%  { transform: translateY(-20px); }
+    50%  { transform: translateY(0); }
+    75%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .skills-card { width: 90%; }
+    .sprite { width: 80px; height: 80px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>BHASKAR DAS</h1>
+    <p class="subtitle">Software Engineering Undergrad | Pokémon Trainer</p>
+    <nav>
+        <a href="index.html" class="tab" tabindex="1">HOME</a>
+        <a href="projects.html" class="tab" tabindex="2">PROJECTS</a>
+        <a href="experience.html" class="tab" tabindex="3">EXPERIENCE</a>
+        <a href="skills.html" class="tab active" tabindex="4">SKILLS</a>
+        <a href="hobbies.html" class="tab" tabindex="5">HOBBIES</a>
+        <a href="linkup.html" class="tab" tabindex="6">LINK UP</a>
+    </nav>
+  </header>
+
+  <img src="assets/images/squirtle.png" alt="Squirtle Sprite" class="sprite">
+
+  <main>
+    <div class="skills-card">
+      <h2>Languages</h2>
+      <ul>
+        <li>C</li>
+        <li>C++</li>
+        <li>Java</li>
+        <li>Python</li>
+        <li>Swift</li>
+        <li>HTML/CSS</li>
+        <li>JavaScript</li>
+      </ul>
+    </div>
+
+    <div class="skills-card">
+      <h2>Systems & Tools</h2>
+      <ul>
+        <li>Linux (Ubuntu/Xubuntu)</li>
+        <li>Bash</li>
+        <li>Git</li>
+        <li>Vim</li>
+        <li>GCC</li>
+        <li>GDB</li>
+      </ul>
+    </div>
+
+    <div class="skills-card">
+      <h2>Concepts</h2>
+      <ul>
+        <li>Data Structures & Algorithms</li>
+        <li>Operating Systems</li>
+        <li>Networking (TCP/IP, Sockets)</li>
+        <li>Concurrency (Blocking I/O loops)</li>
+      </ul>
+    </div>
+
+    <div class="skills-card">
+      <h2>Web & Mobile Development</h2>
+      <ul>
+        <li>Android (Java)</li>
+        <li>iOS (Swift)</li>
+        <li>Flask</li>
+        <li>Streamlit</li>
+        <li>PostgreSQL</li>
+        <li>Supabase</li>
+      </ul>
+    </div>
+
+    <div class="skills-card">
+      <h2>Other Tools</h2>
+      <ul>
+        <li>DaVinci Resolve</li>
+        <li>Canva</li>
+        <li>LaTeX</li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".container");
+  const navLinks = container.querySelectorAll("nav a");
+  const focusable = [...navLinks];
+
+  const activeLink = container.querySelector("nav a.active") || navLinks[0];
+  activeLink.focus();
+
+  document.addEventListener("keydown", (e) => {
+    const current = document.activeElement;
+    if (!focusable.includes(current)) return;
+    const index = focusable.indexOf(current);
+
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+      e.preventDefault();
+      focusable[(index + 1) % focusable.length].focus();
+    }
+    if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      focusable[(index - 1 + focusable.length) % focusable.length].focus();
+    }
+
+    if (e.key.toLowerCase() === "a" || e.key === "Enter") {
+      if (current.tagName === "A") current.click();
+    }
+
+    if (e.key.toLowerCase() === "b" || e.key === "Escape") {
+      window.location.href = "index.html";
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+/* Reset & body */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #cce7ff;
+  color: #003366;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+}
+
+/* Header */
+header h1 {
+  font-size: 2rem;
+  color: #004080;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px #99ccff;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  color: #0059b3;
+}
+
+/* Nav */
+nav {
+  margin-bottom: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  margin: 0 0.8rem;
+  font-size: 0.7rem;
+  color: #003366;
+  border: 2px solid #003366;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+nav a:hover, nav a.active {
+  background-color: #004080;
+  color: #fff;
+  text-shadow: none;
+}
+
+/* Cards */
+.home-card, .project-card {
+  background-color: #e6f2ff;
+  border: 2px solid #004080;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 700px;
+  box-shadow: 2px 2px 6px #99ccff;
+}
+
+.home-card p, .project-card p {
+  font-size: 0.7rem;
+  margin-top: 0.5rem;
+  line-height: 1.2rem;
+}
+
+
+/* Project card links */
+.project-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  color: #003366;
+  border: 2px solid #004080;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  transition: all 0.3s;
+}
+
+.project-card a:hover {
+  background-color: #004080;
+  color: #fff;
+}
+
+/* Retro pixel hover animation */
+.home-card:hover, .project-card:hover {
+  transform: scale(1.02);
+}
+
+/* Ensure the main container is centered and content spaced dynamically */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navigation bar */
+nav {
+  display: flex;
+  gap: 15px; /* space between links */
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* Cards for home, projects, hobbies, etc. */
+.home-card, .project-card, .experience-card, .skills-card, .hobby-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e0f0ff; /* light blue retro style */
+  border: 2px solid #3399ff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px 0; /* vertical spacing between cards */
+  max-width: 800px;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+.sprite {
+  width: 100px;
+  height: auto;
+  margin-bottom: 15px;
+  position: relative;  /* IMPORTANT for JS */
+  top: 0px;            /* Start position */
+}
+
+
+/* Make project lists and content dynamic */
+.project-card ul, .experience-card ul, .skills-card ul, .hobby-card ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+}
+
+/* Responsive: stack cards vertically on small screens */
+@media (max-width: 768px) {
+  .home-card, .project-card, .experience-card, .skills-card, .hobby-card {
+    width: 95%;
+    padding: 15px;
+  }
+}
+/* Add this to your style.css */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  padding: 20px;
+}
+
+.home-card {
+  background-color: #1a1a1a; /* dark retro background */
+  color: #00ffff;            /* bright retro text */
+  border: 3px solid #00ffff;
+  padding: 40px;
+  text-align: center;
+  max-width: 600px;
+  border-radius: 8px;
+}
+/* Center all content vertically and horizontally */
+#main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100vh; /* full viewport height */
+  padding: 20px;
+  background-color: #0d1b2a; /* dark retro background */
+  color: #00ffff;
+}
+
+/* Keep header content nicely centered */
+#main-content header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* Main paragraph centered */
+.centered-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Full screen intro */
+#intro-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #0d1b2a;
+  color: #00ffff;
+}
+
+/* Legend on the side */
+.legend-side {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #001f3f;
+  color: #00ffff;
+  padding: 15px;
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  font-size: 0.8rem;
+}
+
+/* Keyboard focus outline */
+button:focus, a:focus {
+  outline: 3px solid #ff6600;
+  outline-offset: 2px;
+}
+
+/* Center main content */
+#main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
+

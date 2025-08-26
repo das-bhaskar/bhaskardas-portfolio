@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhaskar Das - Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #5D3FD3; /* lighter purple */
+    color: #F3E5F5; /* off-white for readability */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  header {
+    margin-bottom: 50px;
+  }
+
+  nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #F3E5F5;
+    transition: color 0.3s;
+  }
+
+  nav a:hover, nav a.active {
+    color: #FF5C8D; /* bright hover highlight */
+  }
+
+  .experience-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .experience-card {
+    background-color: #7E57C2; /* lighter card purple */
+    border: 3px solid #B39DDB; /* lavender border */
+    border-radius: 15px;
+    padding: 30px;
+    width: 300px;
+    box-sizing: border-box;
+    cursor: pointer;
+    animation: float 3s ease-in-out infinite;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .experience-card.jio:hover {
+    animation: wobble 0.5s ease-in-out infinite;
+  }
+
+  .experience-card h2 { font-size: 18px; margin-bottom: 5px; color: #FFFFFF; }
+  .experience-card h3 { font-size: 14px; margin-bottom: 5px; font-weight: normal; color: #E1BEE7; }
+  .experience-card ul { list-style: none; padding-left: 0; font-size: 14px; color: #F3E5F5; }
+  .experience-card ul li { margin-bottom: 8px; }
+
+  .sprite {
+    display: block;
+    margin: 0 auto 40px auto;
+    width: 100px;
+    height: 100px;
+    animation: float-sprite 0.25s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px #B39DDB); /* lighter glow */
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+  }
+
+  @keyframes wobble {
+    0% { transform: translateY(-8px) rotate(0deg); }
+    25% { transform: translateY(-12px) rotate(-2deg); }
+    50% { transform: translateY(-8px) rotate(2deg); }
+    75% { transform: translateY(-12px) rotate(-1deg); }
+    100% { transform: translateY(-8px) rotate(0deg); }
+  }
+
+  @keyframes float-sprite {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .experience-card { width: 90%; padding: 25px; }
+    .sprite { width: 80px; height: 80px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>BHASKAR DAS</h1>
+    <p class="subtitle">Software Engineering Undergrad | Pokémon Trainer</p>
+    <nav>
+        <a href="index.html" class="tab" tabindex="1">HOME</a>
+        <a href="projects.html" class="tab" tabindex="2">PROJECTS</a>
+        <a href="experience.html" class="tab active" tabindex="3">EXPERIENCE</a>
+        <a href="skills.html" class="tab" tabindex="4">SKILLS</a>
+        <a href="hobbies.html" class="tab" tabindex="5">HOBBIES</a>
+        <a href="linkup.html" class="tab" tabindex="6">LINK UP</a> <!-- New Contact tab -->
+      </nav>
+  </header>
+
+  <img src="assets/images/gengar.png" alt="Gengar Sprite" class="sprite">
+
+  <main class="experience-grid">
+    <div class="experience-card jio" onclick="window.open('https://github.com/das-bhaskar/Custom-Diarization-Algorithm-with-Speaker-Based-Captioning.git', '_blank')">
+      <h2>Machine Learning Research Intern</h2>
+      <h2>Reliance Jio Ltd.</h2>
+      <h3>May 2024 – Jul 2024</h3>
+      <h3>Mumbai, MH</h3>
+      <ul>
+        <li>Developed a Custom Audio Diarization Algorithm using MFCCs & overlapping windows, improving accuracy by 15%.</li>
+        <li>Implemented Whisper for real-time segment-wise transcription, achieving 98% accuracy.</li>
+        <li>Created human voice detection using WebRTC VAD; reduced false positives by 40%, improving speech detection by 35%.</li>
+      </ul>
+    </div>
+    <div class="experience-card">
+      <h2>Research</h2>
+      <h2>SVKM NMIMS MPSTME</h2>
+      <h3>Dec 2023 – Sep 2024</h3>
+      <h3>Mumbai, MH</h3>
+      <ul>
+        <li>Selected for Student Research Group Prakalp – Machine Learning in healthcare sector.</li>
+        <li>Participated in Student Research Internship Program focusing on Humanities (Caste Studies).</li>
+      </ul>
+    </div>
+    <div class="experience-card">
+      <h2>Joint General Secretary, Research and Development</h2>
+      <h2>MUN Society MPSTME</h2>
+      <h3>Jul 2023 – Sep 2024</h3>
+      <h3>Mumbai, MH</h3>
+      <ul>
+        <li>Leading the Research and Development department, overseeing study guides, conducting training sessions, and spearheading initiatives for <em>MUMBAI MUN</em>, hosting 300+ participants.</li>
+        <li>Selected as a delegate for the <strong><em>Harvard WorldMUN in Taiwan</em></strong> as part of the Indian delegation.</li>
+      </ul>
+    </div>
+    <div class="experience-card">
+      <h2>Summer Camp Trainer</h2>
+      <h2>LG Electronics</h2>
+      <h3>Jun 2023 – Jul 2023</h3>
+      <h3>Gurugram, HR</h3>
+      <ul>
+        <li>Conducted sessions on AI, Graphic Design, and Web Page Building for 50+ students.</li>
+      </ul>
+    </div>
+    <div class="experience-card">
+      <h2>Speaker Contributor</h2>
+      <h2>TED-Ed Club</h2>
+      <h3>Jun 2019 – Jul 2020</h3>
+      <h3>Mumbai, MH</h3>
+      <ul>
+        <li>Delivered talks on diverse topics and conducted research for presentations.</li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".container");
+  const navLinks = container.querySelectorAll("nav a");
+  const focusable = [...navLinks];
+
+  const activeLink = container.querySelector("nav a.active") || navLinks[0];
+  activeLink.focus();
+
+  document.addEventListener("keydown", (e) => {
+    const current = document.activeElement;
+    if (!focusable.includes(current)) return;
+    const index = focusable.indexOf(current);
+
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+      e.preventDefault();
+      focusable[(index + 1) % focusable.length].focus();
+    }
+    if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      focusable[(index - 1 + focusable.length) % focusable.length].focus();
+    }
+
+    if (e.key.toLowerCase() === "a" || e.key === "Enter") {
+      if (current.tagName === "A") current.click();
+    }
+
+    if (e.key.toLowerCase() === "b" || e.key === "Escape") {
+      window.location.href = "index.html";
+    }
+  });
+});
+</script>
+</body>
+</html>

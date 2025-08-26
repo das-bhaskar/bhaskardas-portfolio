@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhaskar Das - Retro Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+body, html {
+  margin: 0; padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  height: 100%;
+  transition: background-color 1s ease, color 1s ease;
+}
+
+/* Button/Link focus */
+button, a { cursor: pointer; }
+button:focus, a:focus { outline: 3px solid currentColor; outline-offset: 2px; }
+
+/* Intro Screen - Charmander */
+#intro-screen {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  height: 100vh; text-align: center; padding: 20px; box-sizing: border-box;
+}
+#intro-screen .sprite { width: 120px; height: 120px; margin-bottom: 20px; animation: jump 0.6s ease-in-out infinite; }
+#start-btn {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px; padding: 12px 24px;
+  background-color: #ff6600; color: #fff5e6;
+  border: 4px solid #ff9933; border-radius: 0;
+  cursor: pointer; transition: all 0.1s;
+  box-shadow: 4px 4px 0px #993300; text-shadow: 1px 1px 0 #993300;
+  animation: blink 1s step-start infinite;
+}
+#start-btn:hover, #start-btn:focus {
+  background-color: #ff9933; color: #1a0d00; border-color: #ff6600;
+  box-shadow: 4px 4px 0px #993300 inset; outline: none;
+}
+.legend { margin-top: 20px; font-size: 0.8rem; }
+
+@keyframes jump {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-20px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+@keyframes blink { 0%,50%,100% { opacity: 1; } 25%,75% { opacity: 0; } }
+
+/* Main Content - Pikachu theme */
+#main-content { display: none; flex-direction: column; align-items: center; justify-content: flex-start; padding: 20px; min-height: 100vh; position: relative; transition: background-color 1s ease, color 1s ease; }
+#main-content .sprite {
+  display: block;
+  margin: 180px auto 20px auto; /* increased top margin to 80px */
+  width: 350px;
+  height: auto;
+  animation: jump 0.6s ease-in-out infinite;
+}
+
+
+header { text-align: center; margin-bottom: 20px; }
+nav { display: flex; gap: 15px; justify-content: center; margin-bottom: 10px; }
+nav a {
+  text-decoration: none; border: 2px solid; padding: 10px 15px; border-radius: 0;
+  font-size: 0.8rem; transition: all 0.7s ease;
+}
+nav a:hover, nav a:focus, nav a.active { background-color: currentColor; color: #fff; }
+
+/* FireRed-style welcome box below Ash */
+#welcome-box {
+  margin-top: 250px;
+  padding: 20px;
+  font-size: 0.9rem;
+  border: 3px solid #ff0000;
+  background-color: #660000; /* Dark red FireRed theme */
+  color: #ffcc33; /* Bright text */
+  width: 90%;
+  max-width: 700px;
+  text-align: center;
+  box-shadow: 4px 4px 0px #993300;
+}
+#welcome-box span { animation: blink-cursor 1s step-start infinite; }
+@keyframes blink-cursor { 0%,50%,100% { opacity: 1; } 25%,75% { opacity: 0; } }
+
+/* Center main content */
+main.centered-main { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; width: 90%; max-width: 800px; text-align: center; }
+
+/* Legend box */
+.legend-side { position: fixed; top: 20px; right: 20px; padding: 15px; border-radius: 0; font-size: 0.8rem; border: 2px solid; transition: all 0.7s ease; }
+.legend-side h3 { margin-top: 0; }
+
+/* Theme classes */
+body.charmander { background-color: #1a0d00; color: #ff9933; }
+#intro-screen.charmander { background-color: #1a0d00; color: #ff9933; }
+body.pikachu { background-color: #FFF176; color: #4E342E; ;}
+#main-content.pikachu { background-color: #FFF176; color: #4E342E; }
+
+nav a.charmander { color: #ff9933; border-color: #ff9933; }
+nav a.pikachu { color: #4E342E; border-color: #4E342E; }
+
+nav a.pikachu:hover, nav a.pikachu:focus, nav a.pikachu.active {
+  background-color: #FFD600; color: #4E342E;
+}
+
+.legend-side.charmander { background-color: #993300; color: #ff9933; border-color: #ff9933; }
+.legend-side.pikachu { background-color: #FFEE58; color: #4E342E; border-color: #FFEE58; box-shadow: 2px 2px 0px #FF5252; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  #main-content .sprite { width: 250px; }
+  nav { flex-wrap: wrap; gap: 10px; }
+  #welcome-box { font-size: 0.8rem; }
+}
+
+
+</style>
+</head>
+<body class="charmander">
+
+<!-- Intro Screen -->
+<div id="intro-screen" class="charmander">
+  <img src="assets/images/charmander.png" alt="Sprite" class="sprite">
+  <h2>Welcome to my Portfolio</h2>
+  <button id="start-btn" tabindex="1">PRESS A TO START</button>
+  <p class="legend">Use Arrow keys to navigate, Enter/A to select</p>
+</div>
+
+<!-- Main Content -->
+<div id="main-content">
+  <div class="legend-side charmander">
+    <h3>Legend</h3>
+    <ul>
+      <li>Arrow Keys: Move/Select</li>
+      <li>Enter / A: Activate / Open</li>
+      <li>Escape / B: Go back</li>
+    </ul>
+  </div>
+
+  <header>
+    <h1>BHASKAR DAS</h1>
+    <p class="subtitle">Software Engineering Undergrad | Pokémon Trainer</p>
+    <nav>
+      <a href="projects.html" class="tab charmander" tabindex="2">PROJECTS</a>
+      <a href="experience.html" class="tab charmander" tabindex="3">EXPERIENCE</a>
+      <a href="skills.html" class="tab charmander" tabindex="4">SKILLS</a>
+      <a href="hobbies.html" class="tab charmander" tabindex="5">HOBBIES</a>
+      <a href="linkup.html" class="tab charmander active" tabindex="6">LINK UP</a>
+    </nav>
+  </header>
+
+  <img src="assets/images/ash.png" alt="Ash Sprite" class="sprite">
+
+  <div id="welcome-box">
+    Welcome, Trainer! Your adventure through Bhaskar's digital world begins here <span>|</span>
+  </div>
+
+  <main class="centered-main">
+    <p>Catch all the projects, skills, and adventures!</p>
+  </main>
+</div>
+
+<script>
+const startBtn = document.getElementById("start-btn");
+const intro = document.getElementById("intro-screen");
+const mainContent = document.getElementById("main-content");
+
+function enterGame() {
+  intro.style.opacity = 0;
+  setTimeout(() => {
+    intro.style.display = "none";
+    mainContent.style.display = "flex";
+
+    // Apply Pikachu theme
+    document.body.classList.remove("charmander");
+    document.body.classList.add("pikachu");
+    mainContent.classList.add("pikachu");
+    document.querySelectorAll("nav a").forEach(a => { 
+      a.classList.remove("charmander"); 
+      a.classList.add("pikachu"); 
+    });
+    document.querySelector(".legend-side").classList.remove("charmander");
+    document.querySelector(".legend-side").classList.add("pikachu");
+
+    mainContent.style.opacity = 0;
+    setTimeout(() => mainContent.style.opacity = 1, 50);
+    document.querySelector("#main-content nav a.active").focus();
+  }, 700);
+}
+
+document.addEventListener("keydown", (e) => {
+  if (intro.style.display !== "none" && (e.key.toLowerCase() === "a" || e.key === "Enter")) { enterGame(); }
+});
+startBtn.addEventListener("click", enterGame);
+
+document.addEventListener("keydown", (e) => {
+  if (mainContent.style.display !== "none") {
+    const focusable = Array.from(mainContent.querySelectorAll("a, button"));
+    const current = document.activeElement;
+    const index = focusable.indexOf(current);
+
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") { e.preventDefault(); focusable[(index + 1) % focusable.length].focus(); }
+    if (e.key === "ArrowUp" || e.key === "ArrowLeft") { e.preventDefault(); focusable[(index - 1 + focusable.length) % focusable.length].focus(); }
+
+    if (e.key.toLowerCase() === "a" || e.key === "Enter") { if (current.tagName === "A" || current.tagName === "BUTTON") current.click(); }
+
+    if (e.key.toLowerCase() === "b" || e.key === "Escape") {
+      mainContent.style.display = "none";
+      intro.style.display = "flex";
+      intro.style.opacity = 1;
+
+      // Revert back to Charmander theme
+      document.body.classList.remove("pikachu");
+      document.body.classList.add("charmander");
+      mainContent.classList.remove("pikachu");
+      document.querySelectorAll("nav a").forEach(a => { a.classList.remove("pikachu"); a.classList.add("charmander"); });
+      document.querySelector(".legend-side").classList.remove("pikachu");
+      document.querySelector(".legend-side").classList.add("charmander");
+
+      startBtn.focus();
+    }
+  }
+});
+</script>
+
+</body>
+</html>
