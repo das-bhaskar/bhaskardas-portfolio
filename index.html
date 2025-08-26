@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bhaskar Das - Retro Portfolio</title>
+<title>Bhaskar Das Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
 body, html {
@@ -48,16 +48,15 @@ button:focus, a:focus { outline: 3px solid currentColor; outline-offset: 2px; }
 }
 @keyframes blink { 0%,50%,100% { opacity: 1; } 25%,75% { opacity: 0; } }
 
-/* Main Content - Pikachu theme */
+/* Main Content */
 #main-content { display: none; flex-direction: column; align-items: center; justify-content: flex-start; padding: 20px; min-height: 100vh; position: relative; transition: background-color 1s ease, color 1s ease; }
 #main-content .sprite {
   display: block;
-  margin: 180px auto 20px auto; /* increased top margin to 80px */
+  margin: 200px auto 20px auto; /* more top margin above Ash */
   width: 350px;
   height: auto;
   animation: jump 0.6s ease-in-out infinite;
 }
-
 
 header { text-align: center; margin-bottom: 20px; }
 nav { display: flex; gap: 15px; justify-content: center; margin-bottom: 10px; }
@@ -69,7 +68,7 @@ nav a:hover, nav a:focus, nav a.active { background-color: currentColor; color: 
 
 /* FireRed-style welcome box below Ash */
 #welcome-box {
-  margin-top: 250px;
+  margin-top: 30px; /* slightly below Ash */
   padding: 20px;
   font-size: 0.9rem;
   border: 3px solid #ff0000;
@@ -83,8 +82,15 @@ nav a:hover, nav a:focus, nav a.active { background-color: currentColor; color: 
 #welcome-box span { animation: blink-cursor 1s step-start infinite; }
 @keyframes blink-cursor { 0%,50%,100% { opacity: 1; } 25%,75% { opacity: 0; } }
 
-/* Center main content */
-main.centered-main { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; width: 90%; max-width: 800px; text-align: center; }
+/* About Me Paragraph */
+.about-me {
+  margin-top: 30px;
+  font-size: 1rem;
+  max-width: 800px;
+  text-align: center;
+  line-height: 1.5;
+  color: inherit;
+}
 
 /* Legend box */
 .legend-side { position: fixed; top: 20px; right: 20px; padding: 15px; border-radius: 0; font-size: 0.8rem; border: 2px solid; transition: all 0.7s ease; }
@@ -93,15 +99,12 @@ main.centered-main { display: flex; flex-direction: column; align-items: center;
 /* Theme classes */
 body.charmander { background-color: #1a0d00; color: #ff9933; }
 #intro-screen.charmander { background-color: #1a0d00; color: #ff9933; }
-body.pikachu { background-color: #FFF176; color: #4E342E; ;}
+body.pikachu { background-color: #FFF176; color: #4E342E; }
 #main-content.pikachu { background-color: #FFF176; color: #4E342E; }
 
 nav a.charmander { color: #ff9933; border-color: #ff9933; }
 nav a.pikachu { color: #4E342E; border-color: #4E342E; }
-
-nav a.pikachu:hover, nav a.pikachu:focus, nav a.pikachu.active {
-  background-color: #FFD600; color: #4E342E;
-}
+nav a.pikachu:hover, nav a.pikachu:focus, nav a.pikachu.active { background-color: #FFD600; color: #4E342E; }
 
 .legend-side.charmander { background-color: #993300; color: #ff9933; border-color: #ff9933; }
 .legend-side.pikachu { background-color: #FFEE58; color: #4E342E; border-color: #FFEE58; box-shadow: 2px 2px 0px #FF5252; }
@@ -112,8 +115,6 @@ nav a.pikachu:hover, nav a.pikachu:focus, nav a.pikachu.active {
   nav { flex-wrap: wrap; gap: 10px; }
   #welcome-box { font-size: 0.8rem; }
 }
-
-
 </style>
 </head>
 <body class="charmander">
@@ -156,7 +157,9 @@ nav a.pikachu:hover, nav a.pikachu:focus, nav a.pikachu.active {
   </div>
 
   <main class="centered-main">
-    <p>Catch all the projects, skills, and adventures!</p>
+    <p class="about-me">
+      Hi! I’m <strong>Bhaskar Das</strong>, a Software Engineering undergrad at <strong>Concordia University, Montreal, Canada. Welcome to my Pokémon-themed digital world — catch all my projects, skills, and adventures here!
+    </p>
   </main>
 </div>
 
