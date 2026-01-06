@@ -8,8 +8,8 @@
 <style>
   body {
     font-family: 'Press Start 2P', cursive;
-    background-color: #E0F7FA; /* soft water-blue */
-    color: #01579B; /* deep blue text */
+    background-color: #E0F7FA;
+    color: #01579B;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -34,7 +34,7 @@
     transition: color 0.3s;
   }
   nav a:hover, nav a.active {
-    color: #00BCD4; /* bright cyan highlight */
+    color: #00BCD4;
   }
   main {
     display: flex;
@@ -43,14 +43,13 @@
     gap: 30px;
   }
   .skills-card {
-    background-color: #B2EBF2; /* lighter cyan */
-    border: 3px solid #00ACC1; /* medium blue border */
+    background-color: #B2EBF2;
+    border: 3px solid #00ACC1;
     border-radius: 15px;
     padding: 25px;
-    width: 300px;
+    width: 320px;
     box-sizing: border-box;
     text-align: left;
-    cursor: default;
     animation: float 3s ease-in-out infinite;
     transition: transform 0.3s;
   }
@@ -58,20 +57,20 @@
     transform: scale(1.05);
   }
   .skills-card h2 {
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 15px;
+    margin-bottom: 12px;
     text-align: center;
   }
   .skills-card ul {
     list-style: none;
     padding-left: 0;
-    font-size: 12px;
+    font-size: 11px;
+    line-height: 1.45;
   }
   .skills-card ul li {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
   }
 
-  /* Squirtle sprite jump animation */
   .sprite {
     display: block;
     margin: 0 auto 40px auto;
@@ -106,83 +105,103 @@
     <h1>BHASKAR DAS</h1>
     <p class="subtitle">Software Engineering Undergrad | Pokémon Trainer</p>
     <nav>
-        <a href="index.html" class="tab" tabindex="1">HOME</a>
-        <a href="projects.html" class="tab" tabindex="2">PROJECTS</a>
-        <a href="experience.html" class="tab" tabindex="3">EXPERIENCE</a>
-        <a href="skills.html" class="tab active" tabindex="4">SKILLS</a>
-        <a href="hobbies.html" class="tab" tabindex="5">HOBBIES</a>
-        <a href="linkup.html" class="tab" tabindex="6">LINK UP</a>
+      <a href="index.html" tabindex="1">HOME</a>
+      <a href="projects.html" tabindex="2">PROJECTS</a>
+      <a href="experience.html" tabindex="3">EXPERIENCE</a>
+      <a href="skills.html" class="active" tabindex="4">SKILLS</a>
+      <a href="profile.html" tabindex="5">PROFILE</a>
+      <a href="linkup.html" tabindex="6">LINK UP</a>
     </nav>
   </header>
 
   <img src="assets/images/squirtle.png" alt="Squirtle Sprite" class="sprite">
 
   <main>
+
     <div class="skills-card">
-      <h2>Languages</h2>
+      <h2>Programming Languages</h2>
       <ul>
+        <li>Java</li>
         <li>C</li>
         <li>C++</li>
-        <li>Java</li>
         <li>Python</li>
         <li>Swift</li>
-        <li>HTML/CSS</li>
+        <li>HTML / CSS</li>
         <li>JavaScript</li>
       </ul>
     </div>
 
     <div class="skills-card">
-      <h2>Systems & Tools</h2>
+      <h2>Frameworks & Libraries</h2>
       <ul>
-        <li>Linux (Ubuntu/Xubuntu)</li>
-        <li>Bash</li>
-        <li>Git</li>
-        <li>Vim</li>
-        <li>GCC</li>
-        <li>GDB</li>
-      </ul>
-    </div>
-
-    <div class="skills-card">
-      <h2>Concepts</h2>
-      <ul>
-        <li>Data Structures & Algorithms</li>
-        <li>Operating Systems</li>
-        <li>Networking (TCP/IP, Sockets)</li>
-        <li>Concurrency (Blocking I/O loops)</li>
-      </ul>
-    </div>
-
-    <div class="skills-card">
-      <h2>Web & Mobile Development</h2>
-      <ul>
+        <li>Spring & Spring Boot</li>
+        <li>Flask</li>
+        <li>React</li>
+        <li>TypeScript</li>
+        <li>Node.js</li>
+        <li>Streamlit</li>
         <li>Android (Java)</li>
         <li>iOS (Swift)</li>
-        <li>Flask</li>
-        <li>Streamlit</li>
-        <li>PostgreSQL</li>
-        <li>Supabase</li>
       </ul>
     </div>
 
     <div class="skills-card">
-      <h2>Other Tools</h2>
+      <h2>Databases & Infrastructure</h2>
       <ul>
-        <li>DaVinci Resolve</li>
-        <li>Canva</li>
-        <li>LaTeX</li>
+        <li>PostgreSQL</li>
+        <li>MySQL</li>
+        <li>NoSQL Databases</li>
+        <li>Supabase</li>
+        <li>Firebase</li>
+        <li>Cloud Infrastructure (Foundational)</li>
       </ul>
     </div>
+
+    <div class="skills-card">
+      <h2>Developer Tools</h2>
+      <ul>
+        <li>Git & GitHub</li>
+        <li>GitHub Projects (Kanban)</li>
+        <li>Docker</li>
+        <li>CI/CD Pipelines</li>
+        <li>Bash</li>
+        <li>Vim</li>
+        <li>GCC / GDB</li>
+        <li>Linux (Debian / Ubuntu)</li>
+      </ul>
+    </div>
+
+    <div class="skills-card">
+      <h2>Core Competencies</h2>
+      <ul>
+        <li>Agile Software Development</li>
+        <li>Object-Oriented Design</li>
+        <li>Software Development Life Cycle (SDLC)</li>
+        <li>Design Patterns</li>
+        <li>UML Diagrams</li>
+        <li>Data Structures & Algorithms</li>
+        <li>Debugging & Performance Analysis</li>
+      </ul>
+    </div>
+
+    <div class="skills-card">
+      <h2>Relevant Coursework</h2>
+      <ul>
+        <li>Software Architecture and Design</li>
+        <li>Operating Systems</li>
+        <li>Database Systems</li>
+        <li>Computer Networks</li>
+      </ul>
+    </div>
+
   </main>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector(".container");
-  const navLinks = container.querySelectorAll("nav a");
+  const navLinks = document.querySelectorAll("nav a");
   const focusable = [...navLinks];
-
-  const activeLink = container.querySelector("nav a.active") || navLinks[0];
+  const activeLink = document.querySelector("nav a.active") || navLinks[0];
   activeLink.focus();
 
   document.addEventListener("keydown", (e) => {
@@ -190,22 +209,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!focusable.includes(current)) return;
     const index = focusable.indexOf(current);
 
-    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
       e.preventDefault();
       focusable[(index + 1) % focusable.length].focus();
     }
-    if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+    if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
       e.preventDefault();
       focusable[(index - 1 + focusable.length) % focusable.length].focus();
     }
-
-    if (e.key.toLowerCase() === "a" || e.key === "Enter") {
-      if (current.tagName === "A") current.click();
-    }
-
-    if (e.key.toLowerCase() === "b" || e.key === "Escape") {
-      window.location.href = "index.html";
-    }
+    if (e.key === "Enter") current.click();
+    if (e.key === "Escape") window.location.href = "index.html";
   });
 });
 </script>
