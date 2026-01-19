@@ -1,258 +1,335 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bhaskar Das - Skills</title>
+    <title>Bhaskar Das - Skill Mastery</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
     <style>
+      :root {
+        --fire-red: #ff1111;
+        --leaf-green: #33cc33;
+        --sky-blue: #77ccff;
+        --border-dark: #222;
+        --text-main: #333;
+      }
+
       body {
         font-family: "Press Start 2P", cursive;
-        background-color: #e0f7fa;
-        color: #01579b;
+        background-color: #f0f0f0;
         margin: 0;
         padding: 0;
-        text-align: center;
+        overflow-x: hidden;
+        color: var(--text-main);
       }
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
+
+      /* POKEBALL RAIN TRANSITION */
+      #encounter-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9999;
+        pointer-events: none;
+        background: transparent;
       }
-      header {
-        margin-bottom: 50px;
+
+      .pokeball-drop {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: url("https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg")
+          no-repeat center;
+        background-size: contain;
+        top: -50px;
+        animation: drop 0.8s ease-in forwards;
       }
+
+      @keyframes drop {
+        to {
+          top: 110vh;
+          transform: rotate(720deg);
+        }
+      }
+
+      /* NAVIGATION */
       nav {
+        background: #fff;
+        border-bottom: 6px solid var(--border-dark);
         display: flex;
-        gap: 20px;
         justify-content: center;
-        margin-top: 15px;
+        gap: 20px;
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        flex-wrap: wrap;
       }
+
       nav a {
         text-decoration: none;
-        color: #01579b;
-        transition: color 0.3s;
+        color: #888;
+        font-size: 10px;
+        padding: 5px 10px;
+        outline: none;
       }
-      nav a:hover,
-      nav a.active {
-        color: #00bcd4;
+
+      nav a.active,
+      nav a:focus {
+        color: var(--fire-red);
+        border-bottom: 4px solid var(--fire-red);
+        transform: scale(1.1);
       }
-      main {
+
+      /* CRAZY LAYOUT: THE SKILL BADGE TRACK */
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+        position: relative;
+      }
+
+      .badge-track {
+        border-left: 8px dashed #ccc;
+        margin-left: 50px;
+        padding-left: 40px;
+      }
+
+      .skill-section {
+        background: #fff;
+        border: 4px solid var(--border-dark);
+        margin-bottom: 50px;
+        padding: 25px;
+        position: relative;
+        box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+        transform: skew(-2deg);
+      }
+
+      .skill-section::before {
+        content: "";
+        position: absolute;
+        left: -80px;
+        top: 20px;
+        width: 40px;
+        height: 40px;
+        background: var(--sky-blue);
+        border: 4px solid var(--border-dark);
+        border-radius: 50%;
+        z-index: 5;
+      }
+
+      .skill-section h2 {
+        font-size: 14px;
+        background: var(--fire-red);
+        color: white;
+        display: inline-block;
+        padding: 10px;
+        margin: -40px 0 20px -40px;
+        border: 4px solid var(--border-dark);
+      }
+
+      .skill-list {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
-      }
-      .skills-card {
-        background-color: #b2ebf2;
-        border: 3px solid #00acc1;
-        border-radius: 15px;
-        padding: 25px;
-        width: 320px;
-        box-sizing: border-box;
-        text-align: left;
-        animation: float 3s ease-in-out infinite;
-        transition: transform 0.3s;
-      }
-      .skills-card:hover {
-        transform: scale(1.05);
-      }
-      .skills-card h2 {
-        font-size: 15px;
-        margin-bottom: 12px;
-        text-align: center;
-      }
-      .skills-card ul {
+        gap: 15px;
         list-style: none;
-        padding-left: 0;
-        font-size: 11px;
-        line-height: 1.45; /* slightly increased line spacing */
+        padding: 0;
       }
-      .skills-card ul li {
-        margin-bottom: 8px;
+
+      .skill-tag {
+        background: #eee;
+        border: 2px solid #bbb;
+        padding: 8px;
+        font-size: 9px;
+        transition: 0.3s;
       }
+
+      .skill-tag:hover {
+        background: var(--leaf-green);
+        color: white;
+        border-color: var(--border-dark);
+        transform: scale(1.1) rotate(2deg);
+      }
+
+      /* SQUIRTLE FIXED POSITION */
+      .sprite-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        text-align: center;
+        z-index: 50;
+      }
+
       .sprite {
-        display: block;
-        margin: 0 auto 40px auto;
         width: 100px;
-        height: 100px;
-        animation: jump 0.6s ease-in-out infinite;
+        filter: drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white)
+          drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white);
+        animation: bounce 0.5s infinite alternate;
       }
-      @keyframes float {
-        0% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-8px);
-        }
-        100% {
-          transform: translateY(0px);
-        }
-      }
-      @keyframes jump {
-        0% {
-          transform: translateY(0);
-        }
-        25% {
-          transform: translateY(-20px);
-        }
-        50% {
-          transform: translateY(0);
-        }
-        75% {
+
+      @keyframes bounce {
+        to {
           transform: translateY(-10px);
         }
-        100% {
-          transform: translateY(0);
-        }
       }
+
+      .legend-side {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        font-size: 8px;
+        background: #fff;
+        border: 3px solid #000;
+        padding: 10px;
+        z-index: 50;
+      }
+
       @media (max-width: 768px) {
-        .skills-card {
-          width: 90%;
+        .badge-track {
+          margin-left: 10px;
+          padding-left: 20px;
         }
-        .sprite {
-          width: 80px;
-          height: 80px;
+        .skill-section::before {
+          display: none;
+        }
+        .sprite-container {
+          display: none;
         }
       }
     </style>
   </head>
   <body>
+    <div id="encounter-overlay"></div>
+
+    <nav id="game-nav">
+      <a href="index.html">HOME</a>
+      <a href="experience.html">EXPERIENCE</a>
+      <a href="projects.html">PROJECTS</a>
+      <a href="skills.html" class="active">SKILLS</a>
+      <a href="profile.html">PROFILE</a>
+      <a href="linkup.html">LINK UP</a>
+    </nav>
+
+    <div class="legend-side">
+      ARROWS: MOVE<br />
+      A/ENTER: GO<br />
+      B/ESC: HOME
+    </div>
+
     <div class="container">
-      <header>
-        <h1>BHASKAR DAS</h1>
-        <p class="subtitle">Software Engineering Undergrad | Pokémon Trainer</p>
-        <nav>
-          <a href="index.html" tabindex="1">HOME</a>
-          <a href="projects.html" tabindex="2">PROJECTS</a>
-          <a href="experience.html" tabindex="3">EXPERIENCE</a>
-          <a href="skills.html" class="active" tabindex="4">SKILLS</a>
-          <a href="profile.html" tabindex="5">PROFILE</a>
-          <a href="linkup.html" tabindex="6">LINK UP</a>
-        </nav>
-      </header>
-
-      <img
-        src="assets/images/squirtle.png"
-        alt="Squirtle Sprite"
-        class="sprite"
-      />
-
-      <main>
-        <div class="skills-card">
-          <h2>Programming Languages</h2>
-          <ul>
-            <li>Java</li>
-            <li>C</li>
-            <li>C++</li>
-            <li>Python</li>
-            <li>Swift</li>
-            <li>HTML / CSS</li>
-            <li>JavaScript</li>
+      <div class="badge-track">
+        <section class="skill-section">
+          <h2>LANGUAGES</h2>
+          <ul class="skill-list">
+            <li class="skill-tag">JAVA</li>
+            <li class="skill-tag">C / C++</li>
+            <li class="skill-tag">PYTHON</li>
+            <li class="skill-tag">SWIFT</li>
+            <li class="skill-tag">JAVASCRIPT</li>
+            <li class="skill-tag">TYPESCRIPT</li>
+            <li class="skill-tag">HTML / CSS</li>
+            <li class="skill-tag">BASH</li>
           </ul>
-        </div>
+        </section>
 
-        <div class="skills-card">
-          <h2>Frameworks & Libraries</h2>
-          <ul>
-            <li>Spring & Spring Boot</li>
-            <li>Flask</li>
-            <li>React</li>
-            <li>TypeScript</li>
-            <li>Node.js</li>
-            <li>Streamlit</li>
-            <li>Android (Java)</li>
-            <li>iOS (Swift)</li>
+        <section class="skill-section" style="border-color: var(--sky-blue)">
+          <h2 style="background: var(--sky-blue)">FRAMEWORKS</h2>
+          <ul class="skill-list">
+            <li class="skill-tag">SPRING BOOT</li>
+            <li class="skill-tag">FLASK</li>
+            <li class="skill-tag">REACT</li>
+            <li class="skill-tag">NODE.JS</li>
+            <li class="skill-tag">STREAMLIT</li>
+            <li class="skill-tag">ANDROID (JAVA)</li>
+            <li class="skill-tag">iOS (SWIFT)</li>
+            <li class="skill-tag">ARKIT</li>
+            <li class="skill-tag">NVIDIA NeMo</li>
+            <li class="skill-tag">PYTORCH</li>
           </ul>
-        </div>
+        </section>
 
-        <div class="skills-card">
-          <h2>Databases & Infrastructure</h2>
-          <ul>
-            <li>PostgreSQL</li>
-            <li>MySQL</li>
-            <li>NoSQL Databases</li>
-            <li>Supabase</li>
-            <li>Firebase</li>
-            <li>Cloud Infrastructure (Foundational)</li>
+        <section class="skill-section" style="border-color: var(--leaf-green)">
+          <h2 style="background: var(--leaf-green)">DEV & INFRA</h2>
+          <ul class="skill-list">
+            <li class="skill-tag">DOCKER</li>
+            <li class="skill-tag">CI/CD</li>
+            <li class="skill-tag">POSTGRESQL</li>
+            <li class="skill-tag">MYSQL / NOSQL</li>
+            <li class="skill-tag">SUPABASE / FIREBASE</li>
+            <li class="skill-tag">GIT / GITHUB</li>
+            <li class="skill-tag">LINUX (UBUNTU)</li>
+            <li class="skill-tag">VIM / GCC / GDB</li>
+            <li class="skill-tag">CUDA</li>
           </ul>
-        </div>
+        </section>
 
-        <div class="skills-card">
-          <h2>Developer Tools</h2>
-          <ul>
-            <li>Git & GitHub</li>
-            <li>GitHub Projects (Kanban)</li>
-            <li>Docker</li>
-            <li>CI/CD Pipelines</li>
-            <li>Bash</li>
-            <li>Vim</li>
-            <li>GCC / GDB</li>
-            <li>Linux (Debian / Ubuntu)</li>
+        <section class="skill-section">
+          <h2>CORE_LOGIC</h2>
+          <ul class="skill-list">
+            <li class="skill-tag">DISTRIBUTED SYSTEMS</li>
+            <li class="skill-tag">OBJECT-ORIENTED DESIGN</li>
+            <li class="skill-tag">DSA</li>
+            <li class="skill-tag">SDLC / AGILE</li>
+            <li class="skill-tag">DESIGN PATTERNS</li>
+            <li class="skill-tag">UML</li>
+            <li class="skill-tag">NON-BLOCKING I/O</li>
+            <li class="skill-tag">SIGNAL PROCESSING</li>
           </ul>
-        </div>
+        </section>
+      </div>
+    </div>
 
-        <div class="skills-card">
-          <h2>Core Competencies</h2>
-          <ul>
-            <li>Agile Software Development</li>
-            <li>Object-Oriented Design</li>
-            <li>Software Development Life Cycle (SDLC)</li>
-            <li>Design Patterns</li>
-            <li>UML Diagrams</li>
-            <li>Data Structures & Algorithms</li>
-            <li>Debugging & Performance Analysis</li>
-          </ul>
-        </div>
-
-        <div class="skills-card">
-          <h2>Relevant Coursework</h2>
-          <ul>
-            <li>Software Architecture and Design</li>
-            <li>Operating Systems</li>
-            <li>Database Systems</li>
-            <li>Computer Networks</li>
-          </ul>
-        </div>
-      </main>
+    <div class="sprite-container">
+      <img src="assets/images/squirtle.png" alt="Squirtle" class="sprite" />
+      <p style="font-size: 8px">LVL 22</p>
     </div>
 
     <script>
+      // RAIN EFFECT ON LOAD
+      window.onload = () => {
+        const overlay = document.getElementById("encounter-overlay");
+        for (let i = 0; i < 30; i++) {
+          setTimeout(() => {
+            const ball = document.createElement("div");
+            ball.className = "pokeball-drop";
+            ball.style.left = Math.random() * 100 + "vw";
+            ball.style.animationDuration = Math.random() * 0.5 + 0.5 + "s";
+            overlay.appendChild(ball);
+          }, i * 50);
+        }
+      };
+
+      // NAVIGATION LOGIC
       document.addEventListener("DOMContentLoaded", () => {
-        const navLinks = document.querySelectorAll("nav a");
-        const focusable = [...navLinks];
-        const activeLink =
-          document.querySelector("nav a.active") || navLinks[0];
-        activeLink.focus();
+        const navLinks = document.querySelectorAll("#game-nav a");
+        let currentIdx = 3;
+
+        navLinks[currentIdx].focus();
 
         document.addEventListener("keydown", (e) => {
-          const current = document.activeElement;
-          if (!focusable.includes(current)) return;
-          const index = focusable.indexOf(current);
-
-          // Arrow navigation
-          if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-            e.preventDefault();
-            focusable[(index + 1) % focusable.length].focus();
-          }
-          if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-            e.preventDefault();
-            focusable[
-              (index - 1 + focusable.length) % focusable.length
-            ].focus();
-          }
-
-          // Activate link with Enter or "a"
-          if (e.key.toLowerCase() === "a" || e.key === "Enter") {
-            if (current.tagName === "A") current.click();
-          }
-
-          // Go back to home with Escape or "b"
-          if (e.key.toLowerCase() === "b" || e.key === "Escape") {
+          if (e.key === "Escape" || e.key.toLowerCase() === "b") {
             window.location.href = "index.html";
+            return;
+          }
+
+          if (
+            ["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"].includes(e.key)
+          ) {
+            e.preventDefault();
+            if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+              currentIdx = (currentIdx + 1) % navLinks.length;
+            } else {
+              currentIdx = (currentIdx - 1 + navLinks.length) % navLinks.length;
+            }
+            navLinks[currentIdx].focus();
+          }
+
+          if (e.key === "Enter" || e.key.toLowerCase() === "a") {
+            navLinks[currentIdx].click();
           }
         });
       });

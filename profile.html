@@ -1,23 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bhaskar Das - profile</title>
+    <title>Bhaskar Das - PROFILE SNORLAX NEON</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
     <style>
+      /* CRAZY SNORLAX NEON THEME */
+      :root {
+        --snorlax-teal: #56a36c;
+        --snorlax-belly: #a8d5ba;
+        --neon-mint: #50f8d0;
+        --deep-forest: #0d1f16;
+        --glass-mint: rgba(80, 248, 208, 0.1);
+      }
+
       body {
         font-family: "Press Start 2P", cursive;
-        background-color: #a8d5ba; /* Snorlax green */
-        color: #1b3a2b;
+        background: linear-gradient(-45deg, #0d1f16, #1b3a2b, #050a08, #14281e);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: var(--neon-mint);
         margin: 0;
         padding: 0;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+        overflow-x: hidden;
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
       }
 
       .container {
@@ -28,115 +52,134 @@
       }
 
       header {
-        margin-bottom: 10px;
+        margin-bottom: 30px;
         text-align: center;
+        text-shadow: 3px 3px 0px var(--snorlax-teal);
+      }
+
+      .subtitle {
+        color: var(--snorlax-belly);
+        font-size: 10px;
+        margin-top: 10px;
       }
 
       nav {
         display: flex;
         gap: 20px;
         justify-content: center;
-        margin-top: 10px;
+        margin-top: 20px;
       }
 
       nav a {
         text-decoration: none;
-        color: #1b3a2b;
-        transition: color 0.3s;
+        color: var(--snorlax-belly);
+        transition: all 0.3s;
+        font-size: 12px;
+        padding: 5px 10px;
+        border: 2px solid transparent;
       }
 
       nav a:hover,
       nav a.active {
-        color: #ffd166;
+        color: #fff;
+        text-shadow: 0 0 10px var(--neon-mint);
+        border: 2px solid var(--neon-mint);
+        background: var(--glass-mint);
       }
 
       .sprite {
         display: block;
-        margin: 0 auto 20px auto;
-        width: 100px;
-        height: 100px;
-        animation: float-sprite 0.25s ease-in-out infinite;
+        margin: 0 auto 30px auto;
+        width: 120px;
+        height: 120px;
+        filter: drop-shadow(0 0 10px var(--snorlax-teal));
+        animation: float-sprite 0.5s ease-in-out infinite alternate;
       }
 
       @keyframes float-sprite {
-        0% {
-          transform: translateY(0);
+        from {
+          transform: translateY(0) scale(1);
         }
-        50% {
-          transform: translateY(-15px);
-        }
-        100% {
-          transform: translateY(0);
+        to {
+          transform: translateY(-20px) scale(1.1);
         }
       }
 
-      /* Proper grid layout */
+      /* BOXES LOGIC UNTOUCHED - JUST RECOLORED */
       .tiles-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        grid-auto-rows: 10px; /* Create granular rows */
-        gap: 10px;
+        grid-auto-rows: 10px;
+        gap: 20px;
         grid-auto-flow: dense;
-        align-items: start; /* Prevents stretching */
+        align-items: start;
         width: 100%;
       }
-      /* Tile styles */
+
       .tile {
-        background-color: #c4e1c1;
-        border: 3px solid #56a36c;
-        border-radius: 15px;
-        padding: 15px;
+        background: var(--glass-mint);
+        backdrop-filter: blur(10px);
+        border: 3px solid var(--snorlax-teal);
+        border-radius: 0px;
+        padding: 20px;
         text-align: center;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        transition: transform 0.2s, box-shadow 0.2s;
+        transition: all 0.3s;
+        box-shadow: 5px 5px 0px var(--snorlax-teal);
       }
 
       .tile:hover {
-        transform: scale(1.05);
-        box-shadow: 0px 0px 25px rgba(86, 163, 108, 0.6);
+        transform: translate(-5px, -5px);
+        box-shadow: 12px 12px 0px var(--neon-mint);
+        border-color: var(--neon-mint);
+        background: rgba(80, 248, 208, 0.05);
       }
 
+      .tile h1,
       .tile h2 {
-        font-size: 16px;
-        margin-bottom: 10px;
+        font-size: 14px;
+        margin-bottom: 15px;
+        color: #fff;
+        text-shadow: 2px 2px 0px var(--snorlax-teal);
+        text-transform: uppercase;
       }
 
       .tile ul,
       .tile p {
-        font-size: 12px;
-        line-height: 1.3;
+        font-size: 11px;
+        line-height: 1.5;
         text-align: left;
+        color: #e0e0e0;
       }
 
       .tile a {
-        color: #1b3a2b;
+        color: var(--neon-mint);
         text-decoration: none;
         transition: color 0.3s;
       }
 
       .tile a:hover {
-        color: #ffd166;
+        color: #fff;
+        text-shadow: 0 0 5px var(--neon-mint);
       }
 
-      /* Adjusting spans for better flow */
       .tile.youtube,
       .tile.personal,
       .tile.blogs {
         grid-column: span 2;
       }
 
-      /* Removed 'grid-row: span 2;' to prevent large vertical gaps */
-
       .video-container {
         position: relative;
-        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        padding-bottom: 56.25%;
         height: 0;
         overflow: hidden;
-        border-radius: 12px;
-        margin-top: 10px;
+        border: 2px solid var(--snorlax-teal);
+        margin-top: 15px;
+        box-shadow: 0 0 15px rgba(86, 163, 108, 0.3);
       }
 
       .video-container iframe {
@@ -146,6 +189,16 @@
         width: 100%;
         height: 100%;
         border: 0;
+      }
+
+      .channel img {
+        border: 3px solid var(--snorlax-teal);
+        transition: all 0.3s;
+      }
+
+      .tile:hover .channel-img {
+        border-color: var(--neon-mint);
+        filter: drop-shadow(0 0 5px var(--neon-mint));
       }
 
       @media (max-width: 1024px) {
@@ -158,6 +211,11 @@
         .tiles-grid {
           grid-template-columns: 1fr;
         }
+        .tile.youtube,
+        .tile.personal,
+        .tile.blogs {
+          grid-column: span 1;
+        }
       }
     </style>
   </head>
@@ -165,27 +223,23 @@
     <div class="container">
       <header>
         <h1>BHASKAR DAS</h1>
-        <p class="subtitle">Software Engineering Undergrad | Pokémon Trainer</p>
+        <p class="subtitle">SOFTWARE ENGINEER | POKEMON TRAINER</p>
         <nav>
-          <a href="index.html" class="tab" tabindex="1">HOME</a>
-          <a href="projects.html" class="tab" tabindex="2">PROJECTS</a>
-          <a href="experience.html" class="tab" tabindex="3">EXPERIENCE</a>
-          <a href="skills.html" class="tab" tabindex="4">SKILLS</a>
-          <a href="profile.html" class="tab active" tabindex="5">PROFILE</a>
-          <a href="linkup.html" class="tab" tabindex="6">LINK UP</a>
-          <!-- New Contact tab -->
+          <a href="index.html" class="tab">HOME</a>
+          <a href="experience.html" class="tab">EXPERIENCE</a>
+          <a href="projects.html" class="tab">PROJECTS</a>
+
+          <a href="skills.html" class="tab">SKILLS</a>
+          <a href="profile.html" class="tab active">PROFILE</a>
+          <a href="linkup.html" class="tab">LINK UP</a>
         </nav>
       </header>
 
-      <img
-        src="assets/images/snorlax.png"
-        alt="Pokémon Sprite"
-        class="sprite"
-      />
+      <img src="assets/images/snorlax.png" alt="Snorlax" class="sprite" />
 
       <main class="tiles-grid">
         <div class="tile personal">
-          <h1>About Me</h1>
+          <h1>ABOUT ME</h1>
           <p>What reason do you have to believe the earth is flat?</p>
           <p>
             Because I'm a member of the flat mars society and I just discovered
@@ -194,140 +248,101 @@
         </div>
 
         <div class="tile channel">
-          <h2>YouTube Channel</h2>
-
-          <a
-            href="https://www.youtube.com/@bhaskarcodes"
-            target="_blank"
-            style="text-align: center"
-          >
+          <h2>CHANNEL</h2>
+          <a href="https://www.youtube.com/@bhaskarcodes" target="_blank">
             <img
               src="assets/images/bhaskar-codes.png"
-              alt="Bhaskar Codes YouTube Channel"
+              alt="Bhaskar Codes"
+              class="channel-img"
               style="
-                width: 120px;
-                height: 120px;
-                border-radius: 12px;
-                border: 3px solid #56a36c;
+                width: 100px;
+                height: 100px;
                 margin: 10px auto;
                 display: block;
               "
             />
-
-            <h2>Bhaskar Codes  </h2>
+            <h2>Bhaskar Codes</h2>
           </a>
-
-          <p>
-            A coding-focused YouTube channel where I teach LeetCode problems as
-            I learn myself.
-          </p>
+          <p>LeetCode journey in progress. Learning out loud.</p>
         </div>
 
         <div class="tile youtube">
-          <h2>YouTube</h2>
+          <h2>FEATURED VIDEO</h2>
           <h1>
             <a
               href="https://www.youtube.com/watch?v=raMW6wLBUBc"
               target="_blank"
             >
-              Nintendo DS DevKitPro Development Setup
+              Nintendo DS Dev Setup
             </a>
           </h1>
-          <p>
-            A step-by-step guide I made for setting up Nintendo DS development
-            on macOS using
-            <a href="https://devkitpro.org/wiki/Getting_Started" target="_blank"
-              >DevKitPro</a
-            >,
-            <a href="https://sourceforge.net/projects/nflib" target="_blank"
-              >NightFox’s Lib</a
-            >, and
-            <a href="https://libnds.devkitpro.org/index.html" target="_blank"
-              >libnds</a
-            >.
-          </p>
-
           <div class="video-container">
             <iframe
               src="https://www.youtube.com/embed/raMW6wLBUBc"
-              title="Nintendo DS DevKitPro Development Setup"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              title="DS Setup"
               allowfullscreen
-            >
-            </iframe>
+            ></iframe>
           </div>
         </div>
 
         <div class="tile blogs">
-          <h2>Blogs</h2>
+          <h2>BLOGS</h2>
           <h1>
             <a href="https://theikrmoment.blogspot.com" target="_blank"
               >The IKR Moment</a
             >
           </h1>
           <p>
-            There are so many things that run through the human mind. In this
-            blog I try to explore some of the topics that you might have not
-            given any further introspection to because of other priorities. The
-            ikr moment is when you agree with what I have to say in such an
-            excited state that you find yourself in the ultimate state of utopic
-            satisfaction.
+            The ikr moment is when you find yourself in the ultimate state of
+            utopic satisfaction.
           </p>
         </div>
 
         <div class="tile">
-          <h2>Podcast</h2>
+          <h2>PODCAST</h2>
           <h1>All Over</h1>
           <ul>
             <li>
               <a
                 href="https://podcasts.apple.com/ca/podcast/all-over/id1572836793"
-                target="_blank"
                 >Apple Podcasts</a
               >
             </li>
-            <li>
-              <a
-                href="https://open.spotify.com/show/4Ylg9Xa5e8jkGC6daQAAuo?si=23c2c2eadc224a1d"
-                target="_blank"
-                >Spotify</a
-              >
-            </li>
+            <li><a href="#">Spotify</a></li>
           </ul>
         </div>
 
         <div class="tile">
-          <h2>Favorite Movies</h2>
+          <h2>MOVIES</h2>
           <ul>
-            <li>Tenet</li>
-            <li>Oppenheimer</li>
-            <li>Inception</li>
-            <li>And anything Shah Rukh Khan!</li>
+            <li>TENET</li>
+            <li>OPPENHEIMER</li>
+            <li>INCEPTION</li>
+            <li>SHAH RUKH KHAN</li>
           </ul>
         </div>
 
         <div class="tile">
-          <h2>Favorite TV Shows</h2>
+          <h2>TV SHOWS</h2>
           <ul>
-            <li>The Office</li>
-            <li>Big Bang Theory</li>
+            <li>THE OFFICE</li>
+            <li>BIG BANG THEORY</li>
           </ul>
         </div>
 
         <div class="tile">
-          <h2>Favorite Music</h2>
+          <h2>MUSIC</h2>
           <ul>
-            <li>Progressive Rock</li>
-            <li>Bollywood</li>
+            <li>PROG ROCK</li>
+            <li>BOLLYWOOD</li>
           </ul>
         </div>
 
         <div class="tile">
-          <h2>Favorite Books</h2>
+          <h2>BOOKS</h2>
           <ul>
-            <li>Angels and Demons</li>
-            <li>Inferno</li>
+            <li>ANGELS & DEMONS</li>
+            <li>INFERNO</li>
           </ul>
         </div>
       </main>
@@ -337,18 +352,14 @@
       function resizeGridItem(item) {
         const grid = document.querySelector(".tiles-grid");
         const rowHeight = parseInt(
-          window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
+          window.getComputedStyle(grid).getPropertyValue("grid-auto-rows"),
         );
         const rowGap = parseInt(
-          window.getComputedStyle(grid).getPropertyValue("gap")
+          window.getComputedStyle(grid).getPropertyValue("gap"),
         );
-
-        // We need the height of the content, so we create a temp calculation
-        // (Or simply use the item's scrollHeight/offsetHeight if padding is handled)
         const rowSpan = Math.ceil(
-          (item.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap)
+          (item.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap),
         );
-
         item.style.gridRowEnd = "span " + rowSpan;
       }
 
@@ -359,24 +370,19 @@
         }
       }
 
-      // Recalculate on load and resize
       window.onload = resizeAllGridItems;
       window.addEventListener("resize", resizeAllGridItems);
 
-      // Optional: Recalculate if images load late (like your Snorlax or YouTube thumb)
       const allImages = document.getElementsByTagName("img");
       for (let x = 0; x < allImages.length; x++) {
         allImages[x].addEventListener("load", resizeAllGridItems);
       }
 
       document.addEventListener("DOMContentLoaded", () => {
-        const container = document.querySelector(".container");
-        const navLinks = container.querySelectorAll("nav a");
+        const navLinks = document.querySelectorAll("nav a");
         const focusable = [...navLinks];
-
-        // Focus active link on load
         const activeLink =
-          container.querySelector("nav a.active") || navLinks[0];
+          document.querySelector("nav a.active") || navLinks[0];
         activeLink.focus();
 
         document.addEventListener("keydown", (e) => {
@@ -384,7 +390,6 @@
           if (!focusable.includes(current)) return;
           const index = focusable.indexOf(current);
 
-          // Arrow navigation
           if (e.key === "ArrowDown" || e.key === "ArrowRight") {
             e.preventDefault();
             focusable[(index + 1) % focusable.length].focus();
@@ -395,13 +400,9 @@
               (index - 1 + focusable.length) % focusable.length
             ].focus();
           }
-
-          // Activate with Enter or "A"
           if (e.key.toLowerCase() === "a" || e.key === "Enter") {
             if (current.tagName === "A") current.click();
           }
-
-          // Go back HOME with Escape or "B"
           if (e.key.toLowerCase() === "b" || e.key === "Escape") {
             window.location.href = "index.html";
           }

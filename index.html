@@ -1,240 +1,354 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bhaskar Das Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<style>
-body, html {
-  margin: 0; padding: 0;
-  font-family: 'Press Start 2P', cursive;
-  height: 100%;
-  transition: background-color 1s ease, color 1s ease;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bhaskar Das Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --gengar-purple: #5d3fd3;
+        --accent-pink: #ff5c8d;
+        --accent-gold: #ffd166;
+        --text-white: #f3e5f5;
+        --deep-void: #0f0524;
+      }
 
-/* Button/Link focus */
-button, a { cursor: pointer; }
-button:focus, a:focus { outline: 3px solid currentColor; outline-offset: 2px; }
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Press Start 2P", cursive;
+        background-color: #1a0d00;
+        color: var(--text-white);
+        overflow-x: hidden;
+      }
 
-/* Intro Screen - Charmander */
-#intro-screen {
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
-  height: 100vh; text-align: center; padding: 20px; box-sizing: border-box;
-}
-#intro-screen .sprite { width: 120px; height: 120px; margin-bottom: 20px; animation: jump 0.6s ease-in-out infinite; }
-#start-btn {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 14px; padding: 12px 24px;
-  background-color: #ff6600; color: #fff5e6;
-  border: 4px solid #ff9933; border-radius: 0;
-  cursor: pointer; transition: all 0.1s;
-  box-shadow: 4px 4px 0px #993300; text-shadow: 1px 1px 0 #993300;
-  animation: blink 1s step-start infinite;
-}
-#start-btn:hover, #start-btn:focus {
-  background-color: #ff9933; color: #1a0d00; border-color: #ff6600;
-  box-shadow: 4px 4px 0px #993300 inset; outline: none;
-}
-.legend { margin-top: 20px; font-size: 0.8rem; }
+      /* Intro Screen */
+      #intro-screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        background-color: #1a0d00;
+      }
 
-@keyframes jump {
-  0% { transform: translateY(0); }
-  25% { transform: translateY(-20px); }
-  50% { transform: translateY(0); }
-  75% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-@keyframes blink { 0%,50%,100% { opacity: 1; } 25%,75% { opacity: 0; } }
+      #intro-screen .sprite {
+        width: 120px;
+        animation: jump 0.6s ease-in-out infinite;
+        filter: drop-shadow(0 0 10px #ff6600);
+      }
 
-/* Main Content */
-#main-content { display: none; flex-direction: column; align-items: center; justify-content: flex-start; padding: 20px; min-height: 100vh; position: relative; transition: background-color 1s ease, color 1s ease; }
-#main-content .sprite {
-  display: block;
-  margin: 200px auto 20px auto; /* more top margin above Ash */
-  width: 350px;
-  height: auto;
-  animation: jump 0.6s ease-in-out infinite;
-}
+      #start-btn {
+        font-family: "Press Start 2P", cursive;
+        font-size: 16px;
+        padding: 15px 30px;
+        background-color: #ff6600;
+        color: #fff;
+        border: 4px solid #fff;
+        cursor: pointer;
+        box-shadow: 6px 6px 0px #993300;
+        margin-top: 30px;
+      }
 
-header { text-align: center; margin-bottom: 20px; }
-nav { display: flex; gap: 15px; justify-content: center; margin-bottom: 10px; }
-nav a {
-  text-decoration: none; border: 2px solid; padding: 10px 15px; border-radius: 0;
-  font-size: 0.8rem; transition: all 0.7s ease;
-}
-nav a:hover, nav a:focus, nav a.active { background-color: currentColor; color: #fff; }
+      @keyframes jump {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
 
-/* FireRed-style welcome box below Ash */
-#welcome-box {
-  margin-top: 30px; /* slightly below Ash */
-  padding: 20px;
-  font-size: 0.9rem;
-  border: 3px solid #ff0000;
-  background-color: #660000; /* Dark red FireRed theme */
-  color: #ffcc33; /* Bright text */
-  width: 90%;
-  max-width: 700px;
-  text-align: center;
-  box-shadow: 4px 4px 0px #993300;
-}
-#welcome-box span { animation: blink-cursor 1s step-start infinite; }
-@keyframes blink-cursor { 0%,50%,100% { opacity: 1; } 25%,75% { opacity: 0; } }
+      /* Main Content */
+      #main-content {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+        min-height: 100vh;
+        background-color: var(--gengar-purple);
+        background-image: radial-gradient(
+          circle at 50% 50%,
+          #7e57c2 0%,
+          var(--deep-void) 100%
+        );
+      }
 
-/* About Me Paragraph */
-.about-me {
-  margin-top: 30px;
-  font-size: 1rem;
-  max-width: 800px;
-  text-align: center;
-  line-height: 1.5;
-  color: inherit;
-}
+      .legend-side {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px;
+        border: 3px solid #fff;
+        font-size: 8px;
+        line-height: 1.8;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 100;
+        pointer-events: none;
+      }
 
-/* Legend box */
-.legend-side { position: fixed; top: 20px; right: 20px; padding: 15px; border-radius: 0; font-size: 0.8rem; border: 2px solid; transition: all 0.7s ease; }
-.legend-side h3 { margin-top: 0; }
+      header h1 {
+        font-size: clamp(18px, 6vw, 28px);
+        text-shadow: 4px 4px 0px var(--accent-pink);
+        margin-bottom: 30px;
+      }
 
-/* Theme classes */
-body.charmander { background-color: #1a0d00; color: #ff9933; }
-#intro-screen.charmander { background-color: #1a0d00; color: #ff9933; }
-body.pikachu { background-color: #FFF176; color: #4E342E; }
-#main-content.pikachu { background-color: #FFF176; color: #4E342E; }
+      nav {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+        position: relative;
+      }
 
-nav a.charmander { color: #ff9933; border-color: #ff9933; }
-nav a.pikachu { color: #4E342E; border-color: #4E342E; }
-nav a.pikachu:hover, nav a.pikachu:focus, nav a.pikachu.active { background-color: #FFD600; color: #4E342E; }
+      nav a {
+        text-decoration: none;
+        border: 3px solid #fff;
+        padding: 12px 18px;
+        font-size: 10px;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+        position: relative;
+        transition: transform 0.1s;
+      }
 
-.legend-side.charmander { background-color: #993300; color: #ff9933; border-color: #ff9933; }
-.legend-side.pikachu { background-color: #FFEE58; color: #4E342E; border-color: #FFEE58; box-shadow: 2px 2px 0px #FF5252; }
+      /* Visual Selector Finger */
+      nav a:focus::before {
+        content: "👉";
+        position: absolute;
+        left: -40px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        animation: point-move 0.5s infinite alternate;
+      }
 
-/* Responsive */
-@media (max-width: 768px) {
-  #main-content .sprite { width: 250px; }
-  nav { flex-wrap: wrap; gap: 10px; }
-  #welcome-box { font-size: 0.8rem; }
-}
-@media (max-width: 768px) {
-  .legend-side {
-    position: static;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: none;
-  }
-}
+      @keyframes point-move {
+        from {
+          left: -40px;
+        }
+        to {
+          left: -30px;
+        }
+      }
 
-</style>
-</head>
-<body class="charmander">
+      nav a.active,
+      nav a:focus {
+        background-color: var(--accent-pink);
+        outline: none;
+        box-shadow: 4px 4px 0px #000;
+      }
 
-<!-- Intro Screen -->
-<div id="intro-screen" class="charmander">
-  <img src="assets/images/charmander.png" alt="Sprite" class="sprite">
-  <h2>Welcome to my Portfolio</h2>
-  <button id="start-btn" tabindex="1">PRESS A TO START</button>
-  <p class="legend">Use Arrow keys to navigate, Enter/A to select</p>
-</div>
+      .sprite-ash {
+        width: clamp(150px, 40vw, 250px);
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+        animation: float 3s ease-in-out infinite;
+      }
 
-<!-- Main Content -->
-<div id="main-content">
-  <div class="legend-side charmander">
-    <h3>Legend</h3>
-    <ul>
-      <li>Arrow Keys: Move/Select</li>
-      <li>Enter / A: Activate / Open</li>
-      <li>Escape / B: Go back</li>
-    </ul>
-  </div>
+      #welcome-box {
+        margin-top: 20px;
+        padding: 25px;
+        border: 5px solid #fff;
+        background-color: #222;
+        width: 100%;
+        max-width: 800px;
+        box-sizing: border-box;
+        position: relative;
+        box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.5);
+        min-height: 120px;
+        text-align: left;
+      }
 
-  <header>
-    <h1>BHASKAR DAS</h1>
-    <p class="subtitle">Software Engineering Undergrad | Pokémon Trainer</p>
-    <nav>
-      <a href="projects.html" class="tab charmander active" tabindex="2">PROJECTS</a>
-      <a href="experience.html" class="tab charmander" tabindex="3">EXPERIENCE</a>
-      <a href="skills.html" class="tab charmander" tabindex="4">SKILLS</a>
-      <a href="profile.html" class="tab charmander" tabindex="5">PROFILE</a>
-      <a href="linkup.html" class="tab charmander " tabindex="6">LINK UP</a>
-    </nav>
-  </header>
+      #dialogue-text {
+        font-size: 12px;
+        line-height: 1.8;
+        color: #fff;
+        margin: 0;
+      }
 
-  <img src="assets/images/ash.png" alt="Ash Sprite" class="sprite">
+      #welcome-box::after {
+        content: "▼";
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        color: var(--accent-pink);
+        animation: blink 0.8s infinite;
+      }
 
-  <div id="welcome-box">
-    Welcome, Trainer! Your adventure through Bhaskar's digital world begins here <span>|</span>
-  </div>
+      .about-me {
+        margin-top: 40px;
+        font-size: 12px;
+        max-width: 800px;
+        line-height: 1.8;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 25px;
+        border-left: 8px solid var(--accent-gold);
+        text-align: left;
+      }
 
-  <main class="centered-main">
-    <p class="about-me">
-      Hi! I’m <strong>Bhaskar Das</strong>, a Software Engineering undergrad at <strong>Concordia University, Montreal, Canada. Welcome to my Pokémon-themed digital world — catch all my projects, skills, and adventures here!
-    </p>
-  </main>
-</div>
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
 
-<script>
-const startBtn = document.getElementById("start-btn");
-const intro = document.getElementById("intro-screen");
-const mainContent = document.getElementById("main-content");
+      @media (max-width: 768px) {
+        .legend-side {
+          position: relative;
+          top: 0;
+          right: 0;
+          margin-bottom: 20px;
+          width: 100%;
+        }
+        nav a:focus::before {
+          display: none;
+        } /* Hide finger on small mobile screens to prevent overlap */
+        nav {
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="intro-screen">
+      <img src="assets/images/charmander.png" alt="Charmander" class="sprite" />
+      <h2 style="font-size: 10px">A NEW CHALLENGER APPEARS!</h2>
+      <button id="start-btn">PRESS A TO START</button>
+      <p style="margin-top: 30px; font-size: 8px; color: #444">
+        © 2026 BHASKAR OS V3.0
+      </p>
+    </div>
 
-function enterGame() {
-  intro.style.opacity = 0;
-  setTimeout(() => {
-    intro.style.display = "none";
-    mainContent.style.display = "flex";
+    <div id="main-content">
+      <div class="legend-side">
+        <strong style="color: var(--accent-pink)">CONTROLS</strong><br />
+        Arrows: Move<br />
+        A/Enter: Select<br />
+        B/Esc: Reset
+      </div>
 
-    // Apply Pikachu theme
-    document.body.classList.remove("charmander");
-    document.body.classList.add("pikachu");
-    mainContent.classList.add("pikachu");
-    document.querySelectorAll("nav a").forEach(a => { 
-      a.classList.remove("charmander"); 
-      a.classList.add("pikachu"); 
-    });
-    document.querySelector(".legend-side").classList.remove("charmander");
-    document.querySelector(".legend-side").classList.add("pikachu");
+      <header>
+        <h1>BHASKAR DAS</h1>
+        <nav>
+          <a href="index.html" class="active">HOME</a>
+          <a href="experience.html">EXPERIENCE</a>
+          <a href="projects.html">PROJECTS</a>
+          <a href="skills.html">SKILLS</a>
+          <a href="profile.html">PROFILE</a>
+          <a href="linkup.html">LINK UP</a>
+        </nav>
+      </header>
 
-    mainContent.style.opacity = 0;
-    setTimeout(() => mainContent.style.opacity = 1, 50);
-    document.querySelector("#main-content nav a.active").focus();
-  }, 700);
-}
+      <img src="assets/images/ash.png" alt="Ash" class="sprite-ash" />
 
-document.addEventListener("keydown", (e) => {
-  if (intro.style.display !== "none" && (e.key.toLowerCase() === "a" || e.key === "Enter")) { enterGame(); }
-});
-startBtn.addEventListener("click", enterGame);
+      <div id="welcome-box">
+        <p id="dialogue-text"></p>
+      </div>
 
-document.addEventListener("keydown", (e) => {
-  if (mainContent.style.display !== "none") {
-    const focusable = Array.from(mainContent.querySelectorAll("a, button"));
-    const current = document.activeElement;
-    const index = focusable.indexOf(current);
+      <main>
+        <div class="about-me">
+          Hi! I’m
+          <strong style="color: var(--accent-gold)">Bhaskar Das</strong>, a
+          Software Engineering undergrad at
+          <strong>Concordia University</strong>. I specialize in low-level
+          systems and spatial computing bridge-building. <br /><br />
+          <span style="color: var(--accent-pink)">Current Focus:</span>
+          AetherShell & High-Performance Distributed Architecture.
+        </div>
+      </main>
+    </div>
 
-    if (e.key === "ArrowDown" || e.key === "ArrowRight") { e.preventDefault(); focusable[(index + 1) % focusable.length].focus(); }
-    if (e.key === "ArrowUp" || e.key === "ArrowLeft") { e.preventDefault(); focusable[(index - 1 + focusable.length) % focusable.length].focus(); }
+    <script>
+      const startBtn = document.getElementById("start-btn");
+      const intro = document.getElementById("intro-screen");
+      const mainContent = document.getElementById("main-content");
+      const dialogueText = document.getElementById("dialogue-text");
+      const navLinks = document.querySelectorAll("nav a");
 
-    if (e.key.toLowerCase() === "a" || e.key === "Enter") { if (current.tagName === "A" || current.tagName === "BUTTON") current.click(); }
+      const script = [
+        "Welcome, Trainer! You have entered the Gengar-class development zone.",
+        "System initialized... Scanning for high-performance builds...",
+        "Mission: Bridging legacy hardware with modern spatial frameworks.",
+        "Explore the tabs above to view my latest evolutions.",
+      ];
 
-    if (e.key.toLowerCase() === "b" || e.key === "Escape") {
-      mainContent.style.display = "none";
-      intro.style.display = "flex";
-      intro.style.opacity = 1;
+      let scriptIdx = 0;
+      let charIdx = 0;
+      let currentFocusIdx = 0;
 
-      // Revert back to Charmander theme
-      document.body.classList.remove("pikachu");
-      document.body.classList.add("charmander");
-      mainContent.classList.remove("pikachu");
-      document.querySelectorAll("nav a").forEach(a => { a.classList.remove("pikachu"); a.classList.add("charmander"); });
-      document.querySelector(".legend-side").classList.remove("pikachu");
-      document.querySelector(".legend-side").classList.add("charmander");
+      function typeWriter() {
+        if (charIdx < script[scriptIdx].length) {
+          dialogueText.textContent += script[scriptIdx].charAt(charIdx);
+          charIdx++;
+          setTimeout(typeWriter, 35);
+        } else {
+          setTimeout(() => {
+            charIdx = 0;
+            scriptIdx = (scriptIdx + 1) % script.length;
+            dialogueText.textContent = "";
+            typeWriter();
+          }, 3000);
+        }
+      }
 
-      startBtn.focus();
-    }
-  }
-});
-</script>
+      function enterGame() {
+        intro.style.display = "none";
+        mainContent.style.display = "flex";
+        document.body.style.backgroundColor = "#5d3fd3";
+        navLinks[0].focus();
+        typeWriter();
+      }
 
-</body>
+      startBtn.addEventListener("click", enterGame);
+
+      document.addEventListener("keydown", (e) => {
+        if (intro.style.display !== "none") {
+          if (e.key.toLowerCase() === "a" || e.key === "Enter") enterGame();
+          return;
+        }
+
+        if (mainContent.style.display !== "none") {
+          if (e.key.toLowerCase() === "b" || e.key === "Escape") {
+            location.reload();
+            return;
+          }
+
+          if (
+            ["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"].includes(e.key)
+          ) {
+            e.preventDefault();
+            if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+              currentFocusIdx = (currentFocusIdx + 1) % navLinks.length;
+            } else {
+              currentFocusIdx =
+                (currentFocusIdx - 1 + navLinks.length) % navLinks.length;
+            }
+            navLinks[currentFocusIdx].focus();
+          }
+
+          if (e.key.toLowerCase() === "a" || e.key === "Enter") {
+            if (document.activeElement.tagName === "A")
+              document.activeElement.click();
+          }
+        }
+      });
+    </script>
+  </body>
 </html>

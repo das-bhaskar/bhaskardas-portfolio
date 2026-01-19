@@ -1,205 +1,288 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bhaskar Das - Link Up</title>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<style>
-  body {
-    font-family: 'Press Start 2P', cursive;
-    background-color: #FFF3E0;
-    color: #6D4C41;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  header {
-    margin-bottom: 50px;
-  }
-  nav {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 15px;
-  }
-  nav a {
-    text-decoration: none;
-    color: #6D4C41;
-    transition: color 0.3s;
-  }
-  nav a:hover, nav a.active {
-    color: #FFB74D;
-  }
-  .sprite {
-    display: block;
-    margin: 0 auto 40px auto;
-    width: 120px;
-    height: 120px;
-    animation: jump 0.6s ease-in-out infinite;
-  }
-  @keyframes jump {
-    0% { transform: translateY(0); }
-    25% { transform: translateY(-20px); }
-    50% { transform: translateY(0); }
-    75% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-  }
-  .contact-card {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    background-color: #FFE0B2;
-    border: 3px solid #FFB74D;
-    border-radius: 15px;
-    padding: 40px 30px;
-    margin: 20px auto;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    gap: 50px;
-  }
-  .contact-section {
-    flex: 1;
-    min-width: 300px;
-    margin-top: 50px; /* shifts box down */
-  }
-  .resume-section {
-    flex: 2;
-    min-width: 500px;
-    text-align: center;
-  }
-  .contact-section h2, .resume-section h2 {
-    font-size: 18px;
-    margin-bottom: 25px;
-  }
-  .contact-links a {
-    display: inline-block;
-    margin: 10px 15px;
-    padding: 10px 20px;
-    border: 2px solid #6D4C41;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #6D4C41;
-    transition: all 0.3s;
-  }
-  .contact-links a:hover {
-    background-color: #FFB74D;
-    color: white;
-    border-color: #FFB74D;
-  }
-  .contact-info {
-    margin-top: 20px;
-    font-size: 14px;
-  }
-  .resume-iframe {
-    width: 100%;
-    height: 700px;
-    border: 2px solid #FFB74D;
-    border-radius: 10px;
-  }
-  .pokeball-btn {
-    display: inline-block;
-    margin-top: 20px;
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
-  }
-  .pokeball-btn img {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s ease-in-out;
-  }
-  .pokeball-btn:hover img {
-    transform: rotate(360deg);
-  }
-  @media (max-width: 1200px) {
-    .contact-card {
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-    }
-    .resume-section { min-width: 90%; }
-  }
-</style>
-</head>
-<body>
-<div class="container">
-  <header>
-    <h1>BHASKAR DAS</h1>
-    <p class="subtitle">Software Engineering Undergrad | Pokémon Trainer</p>
-    <nav>
-      <a href="index.html" class="tab" tabindex="1">HOME</a>
-      <a href="projects.html" class="tab" tabindex="2">PROJECTS</a>
-      <a href="experience.html" class="tab" tabindex="3">EXPERIENCE</a>
-      <a href="skills.html" class="tab" tabindex="4">SKILLS</a>
-      <a href="profile.html" class="tab" tabindex="5">PROFILE</a>
-      <a href="linkup.html" class="tab active" tabindex="6">LINK UP</a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bhaskar Das - Sandshrew Shell Link Up</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --shell-bg: #e9c46a; /* Sandshrew Yellow */
+        --lcd-screen: #f4a261; /* Sandy Orange */
+        --plastic-border: rgba(255, 255, 255, 0.3);
+        --circuit-trace: rgba(139, 69, 19, 0.1); /* Brownish traces */
+        --ink-dark: #603813; /* Deep Earth Brown */
+        --accent-red: #bc4749; /* Brick Red Pattern color */
+      }
 
-  <!-- Sandshrew Sprite -->
-  <img src="assets/images/sandshrew.png" alt="Sandshrew Sprite" class="sprite">
+      body {
+        font-family: "Press Start 2P", cursive;
+        background-color: var(--shell-bg);
+        background-image:
+          linear-gradient(90deg, var(--circuit-trace) 1px, transparent 1px),
+          linear-gradient(var(--circuit-trace) 1px, transparent 1px);
+        background-size: 40px 40px;
+        color: var(--ink-dark);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
 
-  <div class="contact-card">
-    <div class="contact-section">
-      <h2>Let's Connect!</h2>
-      <div class="contact-links">
-        <a href="https://linkedin.com/in/bhaskardasrj" target="_blank">LinkedIn</a>
-        <a href="https://github.com/das-bhaskar" target="_blank">GitHub</a>
-        <a href="mailto:contactbdrj@gmail.com">Email Me</a>
-      </div>
-      <div class="contact-info">
-        <p>Email: contactbdrj@gmail.com</p>
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        flex: 1;
+      }
+
+      header {
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 22px;
+        letter-spacing: -2px;
+        text-shadow: 3px 3px 0 var(--plastic-border);
+      }
+
+      .subtitle {
+        font-size: 8px;
+        opacity: 0.8;
+        margin-top: 10px;
+        color: var(--ink-dark);
+      }
+
+      nav {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin: 25px 0;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--ink-dark);
+        font-size: 9px;
+        padding: 10px;
+        border: 2px solid transparent;
+        transition: 0.2s;
+        outline: none;
+      }
+
+      nav a.active,
+      nav a:hover,
+      nav a:focus {
+        background: rgba(255, 255, 255, 0.3);
+        border-bottom: 4px solid var(--accent-red);
+        color: var(--accent-red);
+      }
+
+      .ghost-card {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(12px);
+        border: 3px solid var(--plastic-border);
+        border-radius: 20px;
+        padding: 40px;
+        display: flex;
+        gap: 40px;
+        box-shadow:
+          inset 0 0 30px rgba(255, 255, 255, 0.3),
+          12px 12px 0px rgba(96, 56, 19, 0.1);
+      }
+
+      .left-panel {
+        flex: 1;
+        text-align: left;
+      }
+
+      .right-panel {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h2 {
+        font-size: 14px;
+        border-bottom: 4px solid var(--accent-red);
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-bottom: 25px;
+        color: var(--accent-red);
+      }
+
+      .btn-pixel {
+        display: block;
+        background: var(--lcd-screen);
+        color: var(--ink-dark);
+        padding: 15px;
+        margin: 15px 0;
+        text-decoration: none;
+        font-size: 10px;
+        border: 3px solid var(--ink-dark);
+        box-shadow: 4px 4px 0 var(--ink-dark);
+        transition: 0.1s;
+        text-align: center;
+      }
+
+      .btn-pixel:active {
+        box-shadow: 0 0 0 var(--ink-dark);
+        transform: translate(4px, 4px);
+      }
+
+      .open-source-box {
+        margin-top: 40px;
+        padding: 15px;
+        border: 2px dashed var(--accent-red);
+        font-size: 8px;
+        line-height: 1.8;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .resume-view {
+        width: 100%;
+        height: 600px;
+        border: 4px solid var(--ink-dark);
+        background: #fff;
+        filter: sepia(0.3) contrast(1.1); /* Gives the PDF a slight parchment/sand feel */
+      }
+
+      /* SPINNING POKEBALL BUTTON */
+      .pokeball-download {
+        margin-top: 20px;
+        text-decoration: none;
+        color: var(--ink-dark);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        font-size: 10px;
+        transition: 0.2s;
+      }
+
+      .pokeball-icon {
+        width: 50px;
+        height: 50px;
+        transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .pokeball-download:hover .pokeball-icon {
+        transform: rotate(360deg) scale(1.2);
+      }
+
+      .pokeball-download:hover span {
+        color: var(--accent-red);
+      }
+
+      .sprite {
+        width: 100px;
+        display: block;
+        margin: 0 auto 30px auto;
+        image-rendering: pixelated;
+        animation: jitter 0.4s infinite alternate;
+      }
+
+      @keyframes jitter {
+        from {
+          transform: translateX(-2px);
+        }
+        to {
+          transform: translateX(2px);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .ghost-card {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>BHASKAR DAS</h1>
+        <p class="subtitle">SOFTWARE ENGINEERING UNDERGRAD | POKÉMON TRAINER</p>
+        <nav id="game-nav">
+          <a href="index.html">HOME</a>
+          <a href="experience.html">EXPERIENCE</a>
+          <a href="projects.html">PROJECTS</a>
+          <a href="skills.html">SKILLS</a>
+          <a href="profile.html">PROFILE</a>
+          <a href="linkup.html" class="active">LINK UP</a>
+        </nav>
+      </header>
+
+      <img src="assets/images/sandshrew.png" alt="Sandshrew" class="sprite" />
+
+      <div class="ghost-card">
+        <div class="left-panel">
+          <h2>CONNECT</h2>
+          <a href="https://linkedin.com/in/bhaskardasrj" class="btn-pixel"
+            >LINKEDIN</a
+          >
+          <a href="https://github.com/das-bhaskar" class="btn-pixel">GITHUB</a>
+          <a href="mailto:bhaskardasrj@gmail.com" class="btn-pixel">EMAIL_ME</a>
+
+          <div class="open-source-box">
+            <strong>OPEN SOURCE MISSION</strong><br /><br />
+            Working on open source AetherShell and developing—please contribute!
+          </div>
+        </div>
+
+        <div class="right-panel">
+          <h2>RESUME.DAT</h2>
+          <iframe
+            src="assets/resume/Bhaskar_Das_Resume.pdf"
+            class="resume-view"
+          ></iframe>
+
+          <a
+            href="assets/resume/Bhaskar_Das_Resume.pdf"
+            download
+            class="pokeball-download"
+          >
+            <img
+              src="assets/images/pokeball.png"
+              alt="Pokeball"
+              class="pokeball-icon"
+            />
+            <span>DOWNLOAD_RESUME</span>
+          </a>
+        </div>
       </div>
     </div>
 
-    <div class="resume-section">
-      <h2>My Resume</h2>
-      <iframe src="assets/resume/Bhaskar_Das_Resume.pdf" class="resume-iframe"></iframe>
-      <a href="assets/resume/Bhaskar_Das_Resume.pdf" download class="pokeball-btn" title="Download Resume">
-        <img src="assets/images/pokeball.png" alt="Download Resume">
-      </a>
-    </div>
-  </div>
-</div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll("#game-nav a");
+        let currentIdx = 5;
+        navLinks[currentIdx].focus();
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector(".container");
-  const navLinks = container.querySelectorAll("nav a");
-  const focusable = [...navLinks];
-
-  const activeLink = container.querySelector("nav a.active") || navLinks[0];
-  activeLink.focus();
-
-  document.addEventListener("keydown", (e) => {
-    const current = document.activeElement;
-    if (!focusable.includes(current)) return;
-    const index = focusable.indexOf(current);
-
-    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
-      e.preventDefault();
-      focusable[(index + 1) % focusable.length].focus();
-    }
-    if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
-      e.preventDefault();
-      focusable[(index - 1 + focusable.length) % focusable.length].focus();
-    }
-
-    if (e.key.toLowerCase() === "a" || e.key === "Enter") {
-      if (current.tagName === "A") current.click();
-    }
-
-    if (e.key.toLowerCase() === "b" || e.key === "Escape") {
-      window.location.href = "index.html";
-    }
-  });
-});
-</script>
-</body>
+        document.addEventListener("keydown", (e) => {
+          if (["ArrowRight", "ArrowLeft"].includes(e.key)) {
+            e.preventDefault();
+            currentIdx =
+              e.key === "ArrowRight"
+                ? (currentIdx + 1) % navLinks.length
+                : (currentIdx - 1 + navLinks.length) % navLinks.length;
+            navLinks[currentIdx].focus();
+          }
+          if (e.key === "Enter" || e.key.toLowerCase() === "a") {
+            navLinks[currentIdx].click();
+          }
+          if (e.key === "Escape" || e.key.toLowerCase() === "b") {
+            window.location.href = "index.html";
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
