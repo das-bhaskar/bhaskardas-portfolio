@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Software Engineer at SamSearch: CRM and workspace integrations, reporting, LLM assistant. Previously speech systems at Reliance Jio." />
+    <link rel="icon" href="assets/images/pokeball.png" />
+    <meta name="theme-color" content="#0f0524" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Experience — Bhaskar Das" />
+    <meta property="og:description" content="Software Engineer at SamSearch: CRM and workspace integrations, reporting, LLM assistant. Previously speech systems at Reliance Jio." />
+    <meta property="og:image" content="https://das-bhaskar.github.io/bhaskardas-portfolio/assets/images/gengar.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>Bhaskar Das - Experience</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
@@ -258,8 +266,10 @@
         box-shadow: 0 0 15px var(--neon-pink);
       }
     </style>
+      <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <a class="bos-skip" href="#main-content">Skip to content</a>
     <div class="bg-glow"></div>
 
     <div class="container">
@@ -280,6 +290,35 @@
       </div>
 
       <main class="experience-grid">
+        <section class="experience-card featured-card" style="border-color: #00f2ff; box-shadow: 0 0 20px rgba(0,242,255,.2)">
+          <span class="type-tag">TYPE: FULL-STACK // PRODUCTION</span>
+          <h2>Software Engineer</h2>
+          <h3>SamSearch • Mar 2026 – Present • Montreal, QC</h3>
+          <div class="stat-line">
+            <div class="stat-progress" style="width: 95%"></div>
+          </div>
+          <ul>
+            <li>
+              Two-way CRM sync (HubSpot, Salesforce) on one provider-generic
+              OAuth layer, which later carried Google and Microsoft mail,
+              calendar and cloud storage.
+            </li>
+            <li>
+              Shipped the reporting side: a query engine over 20+ datasets, a
+              drag-and-drop dashboard builder, and click-through from a chart
+              to the records behind it.
+            </li>
+            <li>
+              Brought our LLM assistant into Slack and Teams on the same agent
+              as the web app, with every write gated behind human approval.
+            </li>
+            <li>
+              Cut one production query from 8.45s to 1.3ms by getting
+              PostgreSQL onto a partial index instead of a 4-million-row scan.
+            </li>
+          </ul>
+        </section>
+
         <section class="experience-card featured-card">
           <span class="type-tag">TYPE: DISTRIBUTED SYSTEMS // AR</span>
 
@@ -316,8 +355,8 @@
             OPEN SOURCE
           </div>
 
-          <h2>AetherShell — Founder & Lead Developer</h2>
-          <h3>Jan 2025 – Present</h3>
+          <h2>AetherShell — Creator &amp; Maintainer</h2>
+          <h3>Jan 2026 – Present</h3>
           <div class="stat-line">
             <div
               class="stat-progress"
@@ -334,10 +373,10 @@
               projections.
             </li>
             <li>
-              Custom UDP translation layer resulting in 5,000% throughput
-              increase.
+              Custom UDP telemetry stream keeps strokes continuous over
+              unstable legacy Wi-Fi.
             </li>
-            <li>Gemini 2.5 vision worker for real-time 2K asset upscaling.</li>
+            <li>Python vision engine for 2D reconstruction, with Gemini classification.</li>
           </ul>
           <div class="action-btns">
             <button
@@ -345,7 +384,7 @@
               style="border-color: #00ff44; color: #00ff44"
               onclick="
                 window.open(
-                  'https://github.com/das-bhaskar/aethershell',
+                  'https://github.com/das-bhaskar/AetherShell',
                   '_blank',
                 )
               "
@@ -369,7 +408,7 @@
               style="border-color: var(--neon-gold); color: var(--neon-gold)"
               onclick="
                 window.open(
-                  'https://github.com/das-bhaskar/aethershell/releases/tag/v1.0.2',
+                  'https://github.com/das-bhaskar/AetherShell/releases/tag/v1.0.2',
                   '_blank',
                 )
               "
@@ -384,14 +423,14 @@
             <span class="type-tag" style="color: var(--neon-cyan)"
               >TYPE: MACHINE LEARNING</span
             >
-            <h2>ML Research Intern</h2>
+            <h2>Software Engineering Intern — Speech Systems &amp; AI</h2>
             <h3>Reliance Jio Ltd. • 2024</h3>
             <div class="stat-line">
               <div class="stat-progress" style="width: 85%"></div>
             </div>
             <ul>
-              <li>Enhanced Diarization accuracy by 15% using MFCCs.</li>
-              <li>Deployed Whisper for ultra-accurate transcriptions.</li>
+              <li>Built a speaker diarization pipeline on NVIDIA TitaNet embeddings, clustered by cosine similarity into per-speaker captions.</li>
+              <li>Took Whisper transcription to high confidence: 16 kHz resampling and 7&times; gain on VAD-marked speech only.</li>
             </ul>
           </div>
 
@@ -531,5 +570,6 @@
         });
       });
     </script>
-  </body>
+    <script src="js/app.js"></script>
+</body>
 </html>
