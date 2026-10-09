@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AetherShell, ShareCycle, a CLI TCP chat in C, Mudic and more — builds by Bhaskar Das." />
+    <link rel="icon" href="assets/images/pokeball.png" />
+    <meta name="theme-color" content="#0f0524" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Projects — Bhaskar Das" />
+    <meta property="og:description" content="AetherShell, ShareCycle, a CLI TCP chat in C, Mudic and more — builds by Bhaskar Das." />
+    <meta property="og:image" content="https://das-bhaskar.github.io/bhaskardas-portfolio/assets/images/venusaur.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>Bhaskar Das - Projects</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
@@ -206,8 +214,10 @@
         .legend-side { position: relative; top: 0; right: 0; width: 100%; margin-bottom: 20px; }
       }
     </style>
+      <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <a class="bos-skip" href="#main-content">Skip to content</a>
     <div class="legend-side">
       <strong style="color: var(--venusaur-pink)">CONTROLS</strong><br />
       Arrows: Move<br />
@@ -232,6 +242,22 @@
       <img src="assets/images/venusaur.png" alt="Venusaur" class="sprite" />
 
       <main class="projects-grid">
+        <div class="project-card">
+          <span class="type-badge">TYPE: MOBILE / GEOSPATIAL</span>
+          <h2>Conco-ordinates – Campus Navigation</h2>
+          <h3>Kotlin • Jetpack Compose • Google Maps API</h3>
+          <ul>
+            <li>Led development of a campus navigation app, owning the architecture for indoor and outdoor routing across a 12-person team.</li>
+            <li>Led a full-scale refactor from legacy XML to Jetpack Compose, moving to a declarative UI and MVVM so navigation logic decoupled from map state.</li>
+            <li>Improved stability by tracking down thread-safety issues and memory leaks that crashed the app under high-frequency location updates.</li>
+            <li>Integrated the Google Maps SDK the app is built on, and set up CI with SonarQube coverage reporting for the team.</li>
+          </ul>
+          <div class="card-actions">
+            <button class="retro-btn" onclick="window.open('https://github.com/das-bhaskar/Conco-ordinates','_blank')">VIEW CODE</button>
+          </div>
+          <div class="card-footer"><span>JAN 2026 - APR 2026</span><span>[TEAM OF 12]</span></div>
+        </div>
+
         <div class="project-card">
           <span class="type-badge">TYPE: BACKEND / ARCHITECTURE</span>
           <h2>ShareCycle – Bike Sharing Platform</h2>
@@ -328,5 +354,6 @@
         });
       });
     </script>
-  </body>
+    <script src="js/app.js"></script>
+</body>
 </html>
